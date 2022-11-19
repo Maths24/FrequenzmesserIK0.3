@@ -160,7 +160,7 @@ def chart_vonbis(start, end):
     data = dbc.query(
         f"select kundenzahl from daten where Date(Datum) = date({start})")
     print(data)
-    data = dbc.query(f"select kundenzahl, date(Datum) from daten ")
+    #data = dbc.query(f"select kundenzahl, date(Datum) from daten ")
     return data
 
 
