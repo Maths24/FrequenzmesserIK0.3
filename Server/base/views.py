@@ -84,7 +84,7 @@ def chart_ios(request):
 
 
 def test(request, pk):
-    return render(request, f"test {pk}")
+    return JsonResponse([{"test": pk}], safe=False)
 
 
 def homedata(request):
