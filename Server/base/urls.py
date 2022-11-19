@@ -16,5 +16,6 @@ urlpatterns = [
     path('firstentrytime', views.get_date_of_first_entry, name="firstentrytime"),
     path('chart/<str:start>/<str:end>/',
          views.chart_vonbis, name="chartvonbis"),
-
+    path('chart/<str:start>',
+         views.chart_vonbis, name="chartvonbis"),
 ]

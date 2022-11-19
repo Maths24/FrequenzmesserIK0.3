@@ -109,6 +109,12 @@ def get_chartdata(request, start, end):
     return j
 
 
+def get_chartdata2(request, start):
+    data = chart_vonbis2(start)
+    j = JsonResponse(data, safe=False)
+    return j
+
+
 def get_date_of_first_entry(request):
     data = [{"frist": str(time_of_first_entry())}]
     j = JsonResponse(data, safe=False)
@@ -146,6 +152,16 @@ def chart_vonbis(start="", end=""):
     # Richtige Daten eintragen
     data = dbc.query(
         f"select kundenzahl from daten where Datum BETWEEN {start} AND {end}")
+    return data
+
+
+def chart_vonbis2(start=""):
+    # SQL-Abfrage Monat in 'mm-dd-yyyy' Format
+    dbc = DBController()
+    # Richtige Daten eintragen
+
+    data = dbc.query(
+        f"select kundenzahl from daten where Datum BETWEEN {start[:9]} AND {start[10:]}")
     return data
 
 
