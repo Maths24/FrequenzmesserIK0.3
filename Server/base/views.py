@@ -179,7 +179,7 @@ def vergleichVorwoche():
     dbc = DBController()
     # richtige Daten eintragen!!!!
     kundenzahlVorwocheData = dbc.query(
-        "select kundenzahl from daten where Datum between curdate() - interval 7 day + '00:00:00' and curdatetime() - interval 7 day")
+        "select kundenzahl from daten where Datum between curdate() - interval 7 day + '00:00:00' and now() - interval 7 day")
     gesamtZahlKundenVorwoche = 0
     letzterWert = 0
 
