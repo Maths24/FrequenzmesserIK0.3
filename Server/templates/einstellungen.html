@@ -1,0 +1,123 @@
+{% block content %} 
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+        <title>Einstellungen</title>
+      
+    </head>
+    <body onload="showDate(); populateWeekdays();">
+        <header>
+            <nav class="navbar"> 
+                <a href="/"><img 
+                  class="logo"          
+                    src="{% static 'img/InnkaufhausLogo.jpg' %}" 
+                    alt="Home">
+                </a>
+                <div class="navLogo"></div>
+                <a href="#" class="toggleButton">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+                <div class="navLinks">
+                    <ul>
+                        <li><a href="/datenanalyse">Datenanalyse</a></li>
+                        <li><a href="/settings" id="boldEinstellungen">Einstellungen</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="topTitle" id="currentDate"></div>
+        <div class="camera">
+          <div >
+            <img id="livefeed" src="/cameralivefeed" alt="live">
+          </div>
+          <div id="ausrichten">
+            Linie um 10px nach 
+            <button type="submit" class="ausrichtenButton" id="obenButton">oben
+            </button><button type="submit" class="ausrichtenButton" id="untenButton">unten</button>
+            ausrichten
+          </div>
+      </div>
+      <div class="timetable">
+        <div id="clock"> <img src="{% static 'img/clock.png' %}"></div>
+        <div id="timetableBox">
+          <table id="timetable">
+            <tr id="headerRow">
+              <th>Wochentage</th>
+              <th>von - bis</th>
+            </tr>
+            <tr id=mondayRow>
+              <td>Montag</td>
+              <td id="timeMonday">09:00 - 18:30 Uhr</td>
+            </tr>
+            <tr id=tuesdayRow>
+              <td>Dienstag</td>
+              <td id="timeThursday">09:00 - 18:30 Uhr</td>
+            </tr>
+            <tr id=wednesdayRow>
+              <td>Mittwoch</td>
+              <td id="timeWednesday">09:00 - 18:30 Uhr</td>
+            </tr>
+            <tr id=thursdayRow>
+              <td>Donnerstag</td>
+              <td id="timeThursday">09:00 - 18:30 Uhr</td>
+            </tr>
+            <tr id=fridayRow>
+              <td>Freitag</td>
+              <td id="timeFriday">09:00 - 18:30 Uhr</td>
+            </tr>
+            <tr id=saturdayRow>
+              <td>Samstag</td>
+              <td id="timeSaturday">09:00 - 17:00 Uhr</td>
+            </tr>
+            <tr id=sundayRow>
+              <td>Sonntag</td>
+              <td id="timeSunday">inaktiv</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="inactivate">
+        <div class="weekdayForm">
+          <form id="inactivateForm">
+            <span>
+              <label for="weekday"></label>
+              <select name="weekday" class="weekday"></select>
+            </span>
+          </form>
+        </div>
+        <div>
+          <button class="weekdayButton" id="inactivateButton">Frequenzmesser an diesem Tag deaktivieren</button>
+        </div>
+      </div>
+      <div class="update">
+        <div class="weekdayForm">
+          <form id="updateForm">
+            <span>
+              <label for="weekday"></label>
+              <select name="weekday" class="weekday"></select>
+            </span>
+          </form>
+        </div>
+        <div id="updateTableBox">
+          <table id="updateTable">
+            <tr>
+              <th>Start</th>
+              <td><input id="updateStart" type="time"></td>
+            </tr>
+            <tr>
+              <th>Ende</th>
+              <td><input id="updateEnde" type="time"></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <button class="weekdayButton" id="updateButton">Zeiten aktualisieren</span></button>
+        </div>
+      </div>
+    <script src="{%static 'javascript/script.js' %}"></script>
+    </body>
+</html>
+{% endblock content%}

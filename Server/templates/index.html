@@ -1,0 +1,55 @@
+{% block content %} {% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="{%static 'javascript/script.js' %}" defer></script>
+    <title>FrequenzmesserIK</title>
+  </head>
+  <body onload="showDate(); changeBackground();">
+    <header>
+      <nav class="navbar">
+        <a href="/"
+          ><img
+            class="logo"
+            src="{% static 'img/InnkaufhausLogo.jpg' %}"
+            alt="Home"
+          />
+        </a>
+        <div class="navLogo"></div>
+        <a href="#" class="toggleButton">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navLinks">
+          <ul>
+            <li><a href="/datenanalyse">Datenanalyse</a></li>
+            <li><a href="/settings">Einstellungen</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="title">FrequenzmesserIK</div>
+    <div id="currentDate"></div>
+    <div class="overviewSection">
+      <table id="overviewTable">
+        <tr class="numberrow">
+          <th class="number">{{gesamtKundenzahl}}</th>
+          <th class="number">{{kundenInLaden}}</th>
+          <th class="number" id="vergleichVortag">{{vergleichVorwoche}}</th>
+        </tr>
+        <tr class="descriptionrow">
+          <td class="description">Kunden gesamt</td>
+          <td class="description">Kunden aktuell</td>
+          <td class="description">Vergleich Vorwoche</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
+{% endblock content%}
