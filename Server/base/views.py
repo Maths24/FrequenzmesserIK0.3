@@ -158,7 +158,7 @@ def chart_vonbis(start, end):
     print(start, end)
     # Richtige Daten eintragen
     data = dbc.query(
-        f"select * from daten")
+        f"select kundenzahl from daten where Date(Datum) BETWEEN {start} AND {end}")
     print(data)
    # data = dbc.query(f"select kundenzahl from daten ")
     return data
