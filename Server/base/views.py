@@ -155,10 +155,11 @@ def time_of_first_entry():
 def chart_vonbis(start, end):
     # SQL-Abfrage Monat in 'mm-dd-yyyy' Format
     dbc = DBController()
+    print(start, end)
     # Richtige Daten eintragen
     data = dbc.query(
         f"select kundenzahl from daten where Datum BETWEEN {start} AND {end}")
-    data = dbc.query(f"select kundenzahl from daten ")
+   # data = dbc.query(f"select kundenzahl from daten ")
     return data
 
 
