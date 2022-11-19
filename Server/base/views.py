@@ -46,12 +46,12 @@ def landing(request):
     d = data.Data()
     gesamtKundenzahl = gesamtZahlHeute()
     kundenInLaden = kundenzahlInLaden()
-    vergleichVorwoche = gesamtKundenzahl - vergleichVorwoche()
+    vergleich = gesamtKundenzahl - vergleichVorwoche()
     # For testing
     #gesamtKundenzahl = 24
     #kundenInLaden = 24
     #vergleichVorwoche = 9
-    return render(request, 'index.html', {'gesamtKundenzahl': gesamtKundenzahl, 'kundenInLaden': kundenInLaden, 'vergleichVorwoche': vergleichVorwoche})
+    return render(request, 'index.html', {'gesamtKundenzahl': gesamtKundenzahl, 'kundenInLaden': kundenInLaden, 'vergleichVorwoche': vergleich})
 
 
 def settings(request):
