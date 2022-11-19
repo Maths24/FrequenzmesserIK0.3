@@ -107,11 +107,11 @@ def get_config(request):
         return JsonResponse([{"nothing": "found"}], safe=False)
 
 
-def get_chartdata(request, start="", end="", r=""):
+def get_chartdata(request, start, end):
     data = chart_vonbis(start, end)
     r = request
     j = JsonResponse(data, safe=False, )
-    return render(request, f"{start} {end}")
+    return j
 
 
 def get_chartdata2(request, start):

@@ -14,10 +14,7 @@ urlpatterns = [
     path('movelineup', views.move_line_up, name="movelineup"),
     path('movelinedown', views.move_line_down, name="movelinedown"),
     path('firstentrytime', views.get_date_of_first_entry, name="firstentrytime"),
-    path('chart/<str:start>/<str:end>/',
-         views.chart_vonbis, name="chartvonbis"),
-    path('chart/<str:start>/',
-         views.chart_vonbis2, name="chartvonbis2"),
+    path('chart/<start>/<end>', views.chart_vonbis, name="chartvonbis"),
     path('test/<pk>/<pd>', views.test, name="test"),
 
 ]
