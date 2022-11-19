@@ -103,14 +103,14 @@ def get_config(request):
         return JsonResponse([{"nothing": "found"}], safe=False)
 
 
-def get_chartdata(request, start, end):
+def get_chartdata(self, request, start, end):
     data = chart_vonbis(start, end)
     r = request
     j = JsonResponse(data, safe=False, )
     return render(request, f"{start} {end}")
 
 
-def get_chartdata2(request, start):
+def get_chartdata2(start):
     data = chart_vonbis2(start)
     r = request
     j = JsonResponse(data, safe=False)
