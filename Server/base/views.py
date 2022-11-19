@@ -152,7 +152,7 @@ def time_of_first_entry():
     return data[0][0]
 
 
-def chart_vonbis(start="", end=""):
+def chart_vonbis(start, end):
     # SQL-Abfrage Monat in 'mm-dd-yyyy' Format
     dbc = DBController()
     # Richtige Daten eintragen
