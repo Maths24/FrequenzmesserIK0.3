@@ -112,6 +112,7 @@ def get_chartdata(request, start, end):
 
 def get_chartdata2(request, start):
     data = chart_vonbis2(start)
+    r = request
     j = JsonResponse(data, safe=False)
     return j
 
