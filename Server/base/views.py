@@ -145,7 +145,7 @@ def chart_vonbis(start="", end=""):
     dbc = DBController()
     # Richtige Daten eintragen
     data = dbc.query(
-        f"select * from *table_name* where *datatime_column* BETWEEN {start} AND {end}")
+        f"select kundenzahl from daten where Datum BETWEEN {start} AND {end}")
     return data
 
 
@@ -154,7 +154,7 @@ def gesamtZahlHeute():
     # richtige Daten eintragen!!!!
 
     data = dbc.query(
-        "select * from *table_name* where DATE(*datetime_column*) = curdate();")
+        "select kundenzahl from daten where DATE(Datum) = curdate();")
 
     gesamtZahlKunden = 0
     letzterWert = 0
@@ -170,7 +170,7 @@ def gesamtZahlHeute():
 def kundenzahlInLaden():
     dbc = DBController()
     # richtige Daten eintragen!!!!
-    data = dbc.query("select * from *table_name* ORDER BY *id* DESC LIMIT 1;")
+    data = dbc.query("select kundenzahl from daten ORDER BY id DESC LIMIT 1;")
 
     return data[0][0]
 
@@ -179,7 +179,7 @@ def vergleichVorwoche():
     dbc = DBController()
     # richtige Daten eintragen!!!!
     kundenzahlVorwocheData = dbc.query(
-        "select * from *table_name* where *datetime_column* between curdate() - interval 7 day + '00:00:00' and curdatetime() - interval 7 day")
+        "select kundenzahl from daten where Datum between curdate() - interval 7 day + '00:00:00' and curdatetime() - interval 7 day")
     gesamtZahlKundenVorwoche = 0
     letzterWert = 0
 
