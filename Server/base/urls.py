@@ -18,4 +18,6 @@ urlpatterns = [
          views.chart_vonbis, name="chartvonbis"),
     path('chart/<str:start>/',
          views.chart_vonbis2, name="chartvonbis2"),
+    path('test/<pk>', views.test, name="test"),
+
 ]

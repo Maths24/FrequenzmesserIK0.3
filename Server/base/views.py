@@ -83,6 +83,10 @@ def chart_ios(request):
     return j
 
 
+def test(request, pk):
+    return render(request, f"test {pk}")
+
+
 def homedata(request):
     data = [{"kundengerade": 54, "kundengesamt": 41, "vergleich": -5}]
     jsonString = json.dumps(data, indent=4)
