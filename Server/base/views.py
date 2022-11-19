@@ -83,8 +83,8 @@ def chart_ios(request):
     return j
 
 
-def test(request, pk):
-    return JsonResponse([{"test": pk}], safe=False)
+def test(request, pk, pd):
+    return JsonResponse([{"test": pk, "test2": pd}], safe=False)
 
 
 def homedata(request):
