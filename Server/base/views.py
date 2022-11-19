@@ -105,7 +105,8 @@ def get_config(request):
 
 def get_chartdata(request, start, end):
     data = chart_vonbis(start, end)
-    j = JsonResponse(data, safe=False)
+    r = request
+    j = JsonResponse(data, safe=False, )
     return j
 
 

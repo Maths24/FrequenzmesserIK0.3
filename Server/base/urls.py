@@ -17,5 +17,5 @@ urlpatterns = [
     path('chart/<str:start>/<str:end>/',
          views.chart_vonbis, name="chartvonbis"),
     path('<str:start>/',
-         views.chart_vonbis2, name="chartvonbis"),
+         views.chart_vonbis2, name="chartvonbis2"),
 ]
