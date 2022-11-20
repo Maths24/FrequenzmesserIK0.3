@@ -269,10 +269,10 @@ def generateFeed(camera):
     global corY
     while updateCam:
         frame = camera.get_frame(corY)
-        print(frame)
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
         sleep(0.3)
+    print("end generateFeed")
 
 
 """def home(request):
