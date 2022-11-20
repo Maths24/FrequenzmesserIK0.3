@@ -15,6 +15,7 @@ import time
 import dlib
 import cv2
 import datetime
+from datetime import date
 from itertools import zip_longest
 #from database import DBManager
 import json
@@ -393,7 +394,9 @@ def stop():
     positionLinie = data["pos"]
     while laufvariable < 7:
         #startzeit = read_config()["timestart"][weekday()+laufvariable % 7]
-        startzeit = data["timestart"][weekday()+laufvariable % 7]
+        dt1 = date.today()
+
+        startzeit = data["timestart"][dt1.weekday()+laufvariable % 7]
         if startzeit == "9999":
             laufvariable += 1
 
