@@ -16,7 +16,7 @@ import dlib
 import cv2
 import datetime
 from itertools import zip_longest
-from database import DBManager
+#from database import DBManager
 import json
 
 t0 = time.time()
@@ -27,6 +27,7 @@ positionLinie = 100
 
 
 def run():
+    print("started running")
     endzeit = read_config()["timeend"][weekday()]
     # construct the argument parse and parse the arguments
     ap = argparse.ArgumentParser()
