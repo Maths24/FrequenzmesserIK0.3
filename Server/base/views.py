@@ -56,15 +56,9 @@ def landing(request):
 
 def settings(request):
     global corY
-    try:
-        with open('Settings.json', 'w') as file:
-            data = json.load(file)
-            settings = json.loads(data)
-            print(settings)
-            corY = settings["pos"]
-            print(corY)
-    except:
-        print("Configfile not found")
+    f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
+    data = f.read()
+    print(data)
 
     return render(request, 'einstellungen.html')
 
