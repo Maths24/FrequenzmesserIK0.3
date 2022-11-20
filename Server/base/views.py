@@ -57,7 +57,7 @@ def landing(request):
 def settings(request):
     global corY
     try:
-        with open('/Settings.json') as file:
+        with open('Settings.json', 'w') as file:
             data = json.load(file)
             settings = json.loads(data)
             print(settings)
