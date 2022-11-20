@@ -394,10 +394,10 @@ def stop():
     while laufvariable < 7:
         #startzeit = read_config()["timestart"][weekday()+laufvariable % 7]
         dt1 = date.today()
-        print(startzeit, type(startzeiten))
         print(startzeiten[dt1.weekday()+laufvariable % 7])
         startzeiten = data["timestart"]
         startzeit = startzeiten[dt1.weekday()+laufvariable % 7]
+        print(startzeit, type(startzeiten))
 
         if startzeit == "9999":
             laufvariable += 1
