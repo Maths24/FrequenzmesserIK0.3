@@ -398,7 +398,7 @@ def stop():
 
         startzeiten = data["timestart"]
         startzeit = startzeiten[dt1.weekday()+laufvariable % 7]
-        print(data["timestart"])
+        print(startzeit)
         print(dt1.weekday()+laufvariable % 7)
         if startzeit == "9999":
             laufvariable += 1
