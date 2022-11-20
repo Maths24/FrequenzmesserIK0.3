@@ -69,7 +69,7 @@ def settings(request):
     corY = data["pos"]
     print(corY)
 
-    return render(request, 'einstellungen.html')
+    return render(request, 'einstellungen.html', {'cam': updateCam})
 
 
 def dataanalysis(request):
