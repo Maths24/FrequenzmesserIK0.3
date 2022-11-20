@@ -56,11 +56,13 @@ def landing(request):
 
 def settings(request):
     global corY
+
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
     print(type(f))
-    data = f.read()
-    d = json.loads(data)
-    print(d)
+    rawdata = f.read()
+    data = json.loads(data)
+
+    corY = data["pos"]
 
     return render(request, 'einstellungen.html')
 
