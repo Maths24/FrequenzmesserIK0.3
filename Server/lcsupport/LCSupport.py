@@ -13,6 +13,7 @@ class cam():
     def __init__(self):
         print("Constructor of LCSupport")
         self.video = cv2.VideoCapture(0)
+        global counter
         counter += 1
         (self.grabbed, self.frame) = self.video.read()
         print(counter)
@@ -21,6 +22,7 @@ class cam():
     def __del__(self):
         print("camera output stopped")
         self.video.release()
+        global counter
         counter -= 1
 
     def get_frame(self, corY=100):
