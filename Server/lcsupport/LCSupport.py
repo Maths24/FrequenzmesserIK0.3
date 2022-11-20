@@ -22,7 +22,8 @@ class cam():
 
     def get_frame(self, corY=100):
         image = self.frame
-        cv2.line(image, (0, corY), (self.width, corY), (255, 151, 41), 3)
+        print(type(self.width))
+        cv2.line(image, (0, corY), (int(self.width), corY), (255, 151, 41), 3)
 
         _, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
