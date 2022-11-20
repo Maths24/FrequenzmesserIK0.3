@@ -19,6 +19,8 @@ from datetime import date
 from itertools import zip_longest
 #from database import DBManager
 import json
+from time import sleep
+
 
 t0 = time.time()
 settings = {}
@@ -406,6 +408,8 @@ def stop():
             break
     print(startzeit)
     while datetime.time.hour != startzeit[:1] and datetime.time.minute != startzeit[2:3]:
+        sleep(10)
+
         pass
 
     run()
