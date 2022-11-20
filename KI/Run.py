@@ -31,7 +31,12 @@ positionLinie = 100
 
 def run():
     print("started running")
-    endzeit = read_config()["timeend"][weekday()]
+    f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
+    rawdata = f.read()
+    data = json.loads(rawdata)
+    dt1 = date.today()
+
+    endzeit = data["timeend"][dt1.weekday()]
     # construct the argument parse and parse the arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-p", "--prototxt", required=False,
