@@ -397,7 +397,7 @@ def stop():
         dt1 = date.today()
 
         startzeiten = data["timestart"]
-        startzeit = startzeiten[dt1.weekday()+laufvariable % 7]
+        startzeit = startzeiten[dt1.weekday()+laufvariable % 7-1]
         print(startzeit)
         print(dt1.weekday()+laufvariable % 7)
         if startzeit == "9999":
