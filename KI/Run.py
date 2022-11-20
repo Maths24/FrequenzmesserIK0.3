@@ -397,6 +397,7 @@ def stop():
     run()
 
 
+stop()
 # learn more about different schedules here: https://pypi.org/project/schedule/
 """if config.Scheduler:
 	settings = update_config()
