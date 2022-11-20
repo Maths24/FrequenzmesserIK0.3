@@ -3,6 +3,8 @@
 import cv2
 import threading
 
+counter = 0
+
 
 class cam():
     height = 100
@@ -11,13 +13,15 @@ class cam():
     def __init__(self):
         print("Constructor of LCSupport")
         self.video = cv2.VideoCapture(0)
+        counter += 1
         (self.grabbed, self.frame) = self.video.read()
-
+        print(counter)
         threading.Thread(target=self.update, args=()).start()
 
     def __del__(self):
         print("camera output stopped")
         self.video.release()
+        counter -= 1
 
     def get_frame(self, corY=100):
         image = self.frame
