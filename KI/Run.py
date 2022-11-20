@@ -388,18 +388,17 @@ def stop():
     global positionLinie
     #positionLinie = read_config()["pos"]
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
-    print(type(f))
     rawdata = f.read()
     data = json.loads(rawdata)
     positionLinie = data["pos"]
     while laufvariable < 7:
         #startzeit = read_config()["timestart"][weekday()+laufvariable % 7]
         dt1 = date.today()
-
-        startzeiten = data["timestart"]
-        startzeit = startzeiten[dt1.weekday()+laufvariable % 7]
         print(startzeit, type(startzeiten))
         print(startzeiten[dt1.weekday()+laufvariable % 7])
+        startzeiten = data["timestart"]
+        startzeit = startzeiten[dt1.weekday()+laufvariable % 7]
+
         if startzeit == "9999":
             laufvariable += 1
         else:
