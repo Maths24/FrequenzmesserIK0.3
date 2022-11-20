@@ -43,11 +43,7 @@ def read_config():
 
 
 def landing(request):
-    global updateCam
-    if updateCam:
-        global cam
-        del cam
-        updateCam = False
+
     d = data.Data()
     gesamtKundenzahl = gesamtZahlHeute()
     kundenInLaden = kundenzahlInLaden()
@@ -61,12 +57,6 @@ def landing(request):
 
 def settings(request):
     global corY
-    global cam
-    global updateCam
-    if cam != None:
-        del cam
-        print("camera off")
-        updateCam = False
 
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
     print(type(f))
@@ -80,11 +70,6 @@ def settings(request):
 
 
 def dataanalysis(request):
-    global updateCam
-    if updateCam:
-        global cam
-        del cam
-        updateCam = False
 
     d = [['Uhrzeit', 'Kundenzahl Schnitt', 'Kundenzahl'], ['9:00',  1, 1], ['10:00',  2, 3], [
         '11:00',  19, 16], ['12:00',  67, 89], ['13:00',  50, 45], ['14:00',  50, 0], ['15:00',  36, 0]]
