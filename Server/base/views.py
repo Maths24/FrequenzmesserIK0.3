@@ -64,7 +64,6 @@ def settings(request):
     global cam
     global updateCam
     if cam != None:
-        global cam
         del cam
         print("camera off")
         updateCam = False
