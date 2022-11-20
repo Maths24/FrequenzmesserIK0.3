@@ -45,7 +45,9 @@ def read_config():
 def landing(request):
     global updateCam
     if updateCam:
-        stoplivecamera()
+        global cam
+        del cam
+        updateCam = False
     d = data.Data()
     gesamtKundenzahl = gesamtZahlHeute()
     kundenInLaden = kundenzahlInLaden()
@@ -74,7 +76,10 @@ def settings(request):
 def dataanalysis(request):
     global updateCam
     if updateCam:
-        stoplivecamera()
+        global cam
+        del cam
+        updateCam = False
+
     d = [['Uhrzeit', 'Kundenzahl Schnitt', 'Kundenzahl'], ['9:00',  1, 1], ['10:00',  2, 3], [
         '11:00',  19, 16], ['12:00',  67, 89], ['13:00',  50, 45], ['14:00',  50, 0], ['15:00',  36, 0]]
     return render(request, 'datenanalyse.html', {'data': d})
