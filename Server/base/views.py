@@ -55,6 +55,17 @@ def landing(request):
 
 
 def settings(request):
+    global corY
+    try:
+        with open('Settings.json') as file:
+            data = json.load(file)
+            settings = json.loads(data)
+            print(settings)
+            corY = settings["pos"]
+            print(corY)
+    except:
+        print("Configfile not found")
+
     return render(request, 'einstellungen.html')
 
 
