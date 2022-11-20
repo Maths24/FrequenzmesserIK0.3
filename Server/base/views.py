@@ -58,7 +58,9 @@ def landing(request):
 
 def settings(request):
     global corY
-
+    global updateCam
+    updateCam = False
+    updateCam = True
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
     print(type(f))
     rawdata = f.read()
