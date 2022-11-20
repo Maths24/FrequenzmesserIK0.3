@@ -63,6 +63,7 @@ def settings(request):
     data = json.loads(data)
 
     corY = data["pos"]
+    print(corY)
 
     return render(request, 'einstellungen.html')
 
