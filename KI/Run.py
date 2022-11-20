@@ -395,18 +395,16 @@ def stop():
         #startzeit = read_config()["timestart"][weekday()+laufvariable % 7]
         dt1 = date.today()
         startzeiten = data["timestart"]
-        print((dt1.weekday()+laufvariable) % 7)
-        print(startzeiten[(dt1.weekday()+laufvariable) % 7])
 
-        startzeit = startzeiten[dt1.weekday()+laufvariable % 7]
-        print(startzeit, type(startzeiten))
+        startzeit = startzeiten[(dt1.weekday()+laufvariable) % 7]
 
         if startzeit == "9999":
-            print("neuer tag")
+            print("neuer Tag")
             laufvariable += 1
         else:
+            print("kein neuer Tag")
             break
-
+    print(startzeit)
     while datetime.time.hour != startzeit[:1] and datetime.time.minute != startzeit[2:3]:
         pass
 
