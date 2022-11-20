@@ -58,9 +58,9 @@ def settings(request):
     global corY
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
     print(type(f))
-    data = json.load(str(f.read()))
+    data = f.read()
     d = json.loads(data)
-    print(data)
+    print(d)
 
     return render(request, 'einstellungen.html')
 
