@@ -402,6 +402,7 @@ def stop():
         print(startzeit, type(startzeiten))
 
         if startzeit == "9999":
+            print("neuer tag")
             laufvariable += 1
         else:
             break
