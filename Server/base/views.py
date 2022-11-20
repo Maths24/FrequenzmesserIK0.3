@@ -265,7 +265,7 @@ def stoplivecamera(request):
 
 
 def generateFeed(camera):
-
+    print("generateFeed")
     global corY
     while updateCam:
         frame = camera.get_frame(corY)
