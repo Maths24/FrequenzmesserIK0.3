@@ -61,10 +61,12 @@ def landing(request):
 
 def settings(request):
     global corY
+    global cam
     global updateCam
-    if updateCam:
+    if cam != None:
         global cam
         del cam
+        print("camera off")
         updateCam = False
 
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
