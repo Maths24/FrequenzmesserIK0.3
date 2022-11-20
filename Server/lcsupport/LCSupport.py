@@ -11,6 +11,7 @@ class cam():
     def __init__(self):
         print("Constructor of LCSupport")
         self.video = cv2.VideoCapture(0)
+        self.width = self.video.get(cv2.CAP_PROP_FRAME_WIDTH)
         (self.grabbed, self.frame) = self.video.read()
 
         threading.Thread(target=self.update, args=()).start()
@@ -21,7 +22,6 @@ class cam():
 
     def get_frame(self, corY=100):
         image = self.frame
-        self.width = self.frame.get(3)
         cv2.line(image, (0, corY), (self.width, corY), (255, 151, 41), 3)
 
         _, jpeg = cv2.imencode('.jpg', image)
