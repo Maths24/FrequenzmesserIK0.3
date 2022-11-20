@@ -60,7 +60,7 @@ def settings(request):
     f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
     print(type(f))
     rawdata = f.read()
-    data = json.loads(data)
+    data = json.loads(rawdata)
 
     corY = data["pos"]
     print(corY)
