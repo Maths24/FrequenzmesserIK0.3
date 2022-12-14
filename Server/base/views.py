@@ -157,6 +157,27 @@ def move_line_down(request):
     print("down")
     return livecamera(request)
 
+def deactivateFIK (day):
+    with open('C:\\Alles coding\\VS-Code\P-FM\\test.json') as f:
+        data = json.load(f)
+    data["timestart"][day] = 9999
+
+    with open('C:\\Alles coding\\VS-Code\P-FM\\test.json', 'w') as f:
+        json.dump(data, f)
+    return True
+
+def updateFIK (day, start, end):
+    with open('C:\\Alles coding\\VS-Code\P-FM\\test.json') as f:
+        data = json.load(f)
+    startI = start[0] + start[1] + start[3] + start[4]
+    endI = end[0] + end[1] + end[3] + end[4]
+    data["timestart"][day] = int(startI)
+    data["timeend"][day] = int(endI)
+
+    with open('C:\\Alles coding\\VS-Code\P-FM\\test.json', 'w') as f:
+        json.dump(data, f)
+    return True
+
 # ---------------------Datenbankdaten aufbereiten---------------------
 
 
@@ -281,12 +302,10 @@ def generateFeed(camera):
     rooms = Room.objects.all() 
     context = {'rooms': rooms}
     return render(request, 'base/home.html', context)
-
 def room(request, pk):
     room = Room.objects.get(id=pk)
     context = {'room': room}
     return render(request, 'base/room.html', context)
-
 def createRoom(request):
     form = RoomForm()
     if request.method == 'POST':
@@ -296,16 +315,13 @@ def createRoom(request):
             return redirect('home')
     context = {'form': form}
     return render(request, 'base/room_form.html', context) 
-
 def updateRoom(request, pk):
     room = Room.objects.get(id=pk)
     form = RoomForm(instance=room)
-
     if request.method == 'POST':
         form = RoomForm(request.POST, instance=room)
         if form.is_valid():
             form.save()
             return redirect('home')
-
     context = {'form': form}
     return render(request, 'base/room_form.html', context)"""
