@@ -166,47 +166,103 @@
     margin-top: 5vh;
 }
 
+#statistics {
+    font-size: 3.2vmin;
+    text-align: center;
+    margin-top: 4vh;
+}
+#statisticsButton {
+    color: white;
+    background-color: #2997FF;
+    margin-top: 0.75vh;
+    margin-bottom: 1.5vh;
+    border: none;
+    font-size: 3.4vmin;
+    padding: 1.2vmin;
+    border-radius: 2.5vmin;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    width: 65vmax;
+    max-width: 95vw;
+}
+#statisticsButton:hover {
+    background-color: #46a6ff;
+}
+#statisticsButton:active {
+    background-color: #046bcb;
+}
 form {
     display: inline;
 }
 
-.choose {
+#dataTable {
+    width: auto;
     margin: auto;
-    width: 65vmax;
-    max-width: 95vw;
+    padding: auto;
+    align-items: center;
     text-align: center;
-    font-size: 2.9vmin;
-    display: flexbox;
-    justify-content: space-between;
-    margin-top: 5vh;
-    height: 2.5vh;
+    table-layout: center;
+    column-gap: none;
+    border-spacing: 1vmin;
 }
 
-#zeitraum, #day, #month, #year {
-    font-size: 2.5vmin;
+.nameData {
+    font-size: 3.2vmin;
+    height: auto;
+    text-align: center;
+    padding: auto;
+    margin-left: 0.5vmin;
+}
+.choose {
+    margin: auto;
+    width: max-content;
+    height: auto;
+    max-width: 95vw;
+    text-align: center;
+    font-size: 3.2vmin;
+    display: flexbox;
+    justify-content: space-between;
+    margin: 0.5vmin;
+}
+.chooseTime {
+    text-align: center;
+    font-size: 3.2vmin;
+    float: right;
+}
+
+ .day, .month, .year {
+    font-size: 3.2vmin;
     border-radius: 1.5vmin;
+    margin-left: 0.5vmin;
+    margin-right: 0.5vmin;
+    height: auto;
+    padding: auto;
 }
 
 .dropdownSpanDatum {
-    float: left;
+    height:auto;
 }
 
-.dropdownSpanZeitraum {
-    float: right;
+.inputUhrzeit {
+    font-size: 3.2vmin;
+    border-radius: 1.5vmin;
+    margin-right: 0.5vmin;
+    height: auto;
+    padding: auto;
+    margin: auto;
 }
 
 .diagramm {
     align-items: center;
     text-align: center;
-
+    padding-top: 3vh;
 }
 
-#diagramm1, #diagramm2 {
+#diagramm1 {
     border: #2997FF solid;
     width: 65vmax;
     max-width: 95vw;
     margin: auto;
-    margin-top: 5vh;
     height: 50vh;
 }
 
@@ -223,14 +279,36 @@ form {
     max-height: 85vh;
     margin: auto;
     margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #daedff;
 }
-
+#hideOrShowDiv {
+    display: none;
+}
+#startFeedButton {
+    border: none;
+    background-color: transparent;
+    padding: none;
+    margin-top: none;
+    width: 60vmax;
+    max-width: 90vw;
+    height: 32vmax;
+    max-height: 80vh;
+}
 #ausrichten {
     display: inline-block;
     font-size: 3vmin;
     margin-top: 2.5vh;
+    width: 65vmax;
+    max-width: 95vw;
 }
-
+#startFeedButton, #endFeed {
+    display: inline-block;
+    font-size: 3vmin;
+    margin-top: 2.5vh;
+}
 #obenButton {
     border: 2pt black solid;
     border-right-width: 1pt;
@@ -247,7 +325,7 @@ form {
     border-radius: 0 1.3vmin 1.3vmin 0;
     font-size: 2.7vmin;
 }
-#untenButton:hover, #obenButton:hover {
+#untenButton:hover, #obenButton:hover, #endFeedButton:hover {
     border: 2pt #2997FF solid;
     background-color: #2997FF;
     font-size: 2.7vmin;
@@ -259,7 +337,7 @@ form {
 #obenButton:hover {
     border-right-width: 1pt;
 }
-#untenButton:active, #obenButton:active {
+#untenButton:active, #obenButton:active, #endFeedButton:active {
     border: 2pt #2997FF solid;
     padding: 0.4vmin;
     background-color: #2997FF;
@@ -272,7 +350,17 @@ form {
 #obenButton:active {
     border-right-width: 1pt;
 }
-
+#endFeed {
+    width: 65vmax;
+    max-width: 95vw;
+}
+#endFeedButton {
+    border: 2pt black solid;
+    padding: 0.4vmin;
+    background-color: transparent;
+    border-radius: 1.3vmin;
+    font-size: 2.7vmin;
+}
 .timetable {
     align-items: center;
     text-align: center;
@@ -327,7 +415,7 @@ form {
     font-weight: lighter;
     color: #535353;
 }
-.inactivate, .update {
+.deactivate, .update {
     margin: auto;
     width: 65vmax;
     max-width: 90vw;
@@ -348,14 +436,14 @@ form {
     margin-bottom: 0.75vh;
     padding: 0.7vmin;
 }
-.inactivateButton {
+.deactivateButton {
     align-items: center;
     text-align: center;
 }
 .weekdayButton{
     color: white;
     background-color: #2997FF;
-    margin-top: 0.75vh;
+    margin-top: 1vh;
     margin-bottom: 2vh;
     border: none;
     font-size: 3vmin;
@@ -372,14 +460,15 @@ form {
     background-color: #046bcb;
 }
 #updateTable {
-    text-align: end;
+    text-align: left;
     margin: auto;
-    border-spacing: 2.5vmin;
+    border-spacing: none;
     max-width: 85vw;
     width: 55vmax;
     overflow: hidden;
 }
 #updateTable th {
+    width: auto;
     margin: auto;
     margin-left: 2vmin;
     font-size: 4vmin;
@@ -387,22 +476,32 @@ form {
     text-align: left;
 }
 #updateTable td {
+    width: auto;
     margin: auto;
     font-size: 11vmin;
     color: white;
     font-weight: light;
     text-align: right;
 }
+#updateTable tr {
+    width: auto;
+}
 
-input[type=time] {
+.update {
+    margin-bottom: 5vh;
+}
+
+.updateTime {
     border: none;
     color: #2a2c2d;
     font-size: 6vmin;
-    width: 40vmin;
+    width: auto;
     max-width: 40vmax;
     font-weight: bold;
     background-color: #B4B4B4;
     display: end;
+    margin: 1vh;
+    border-radius: 2vh;
 }
   
 /* Wrapper around the hour, minute, second, and am/pm fields as well as 
@@ -423,7 +522,7 @@ input[type=time]::-webkit-datetime-edit-text {
 `-webkit-datetime-edit-{field}-field` */
   
 /* Hour */
-input[type=time]::-webkit-datetime-edit-hour-field {
+.updateTime::-webkit-datetime-edit-hour-field  {
     margin: auto;
     background-color: black;
     color: white;
@@ -434,7 +533,7 @@ input[type=time]::-webkit-datetime-edit-hour-field {
 }
   
   /* Minute */
-input[type=time]::-webkit-datetime-edit-minute-field {
+.updateTime::-webkit-datetime-edit-minute-field {
     margin: auto;
     background-color: black;
     color: white;
@@ -444,7 +543,15 @@ input[type=time]::-webkit-datetime-edit-minute-field {
 }
   
   /* AM/PM */
-input[type=time]::-webkit-datetime-edit-ampm-field {
+.updateTime::-webkit-datetime-edit-ampm-field {
+    margin: auto;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 2vh;
+    padding: 1.7vh;
+}
+.updateTime::-moz-datetime-edit-minute-field{
     margin: auto;
     background-color: black;
     color: white;
@@ -453,7 +560,25 @@ input[type=time]::-webkit-datetime-edit-ampm-field {
     padding: 1.7vh;
 }
   
-input[type="time"]::-webkit-calendar-picker-indicator {
+.updateTime::-webkit-calendar-picker-indicator {
     filter: invert(41%) sepia(99%) saturate(839%) hue-rotate(186deg) brightness(100%) contrast(101%);
-    display: flex;
+}
+
+.info {
+    width: max-content;
+    font-size: 10pt;
+    font-weight: lighter;
+    color: white;
+    text-align: right;
+    align-items: right;
+    display: block;
+    clear: right;
+    float: right;
+    height: min-content;
+}
+.infoDiv {
+    height: min-content;
+}
+#updateTable tr:last-child {
+    height: min-content;
 }

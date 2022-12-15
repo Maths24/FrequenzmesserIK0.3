@@ -16,5 +16,6 @@ urlpatterns = [
     path('firstentrytime', views.get_date_of_first_entry, name="firstentrytime"),
     path('chart/<str:start>/<str:end>', views.get_chartdata, name="chartvonbis"),
     path('test/<pk>/<pd>', views.test, name="test"),
-
+    path('deactivateFIK/<int:day>', views.deactivateFIK, name='deactivateFIK'),
+    path('updateFIK/<day>/<start>/<end>', views.updateFIK, name='updateFIK'),
 ]

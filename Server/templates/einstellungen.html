@@ -1,10 +1,9 @@
-{% block content %} 
-{% load static %}
+{% block content %} {% load static %}
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type="text/css">
         <title>Einstellungen</title>
-      
     </head>
     <body onload="showDate(); populateWeekdays();">
         <header>
@@ -30,14 +29,35 @@
         </header>
         <div class="topTitle" id="currentDate"></div>
         <div class="camera">
-          <div >
-            <img id="livefeed" src="/cameralivefeed" alt="live">
-          </div>
-          <div id="ausrichten">
-            Linie um 10px nach 
-            <button type="submit" class="ausrichtenButton" id="obenButton">oben
-            </button><button type="submit" class="ausrichtenButton" id="untenButton">unten</button>
-            ausrichten
+            <div id="livefeed">
+                <button type="submit" id="startFeedButton" onclick="startFeed();">
+                Liveübertragung starten
+                </button>
+                <div id = "field">
+                  <div class="camera">
+                    <div >
+                      <img id="livefeed" src="/cameralivefeed" alt="live">
+                    </div>
+                    <div id="ausrichten">
+                      Linie um 10px nach 
+                      <button type="submit" class="ausrichtenButton" id="obenButton">oben
+                      </button><button type="submit" class="ausrichtenButton" id="untenButton">unten</button>
+                      ausrichten
+                    </div>
+                </div>
+                </div>
+            </div>
+          <div id="hideOrShowDiv">
+            <div id="ausrichten">
+            Linie um 10pt nach 
+              <button type="submit" class="ausrichtenButton" id="obenButton" onclick="moveUp();">oben
+              </button><button type="submit" class="ausrichtenButton" id="untenButton" onclick="moveDown()";>unten</button>
+              ausrichten
+            </div>
+            <div id="endFeed">
+              Liveübertragung 
+              <button type="submit" id="endFeedButton" onclick="endFeed();">beenden</button>
+            </div>
           </div>
       </div>
       <div class="timetable">
@@ -79,17 +99,17 @@
           </table>
         </div>
       </div>
-      <div class="inactivate">
+      <div class="deactivate">
         <div class="weekdayForm">
           <form id="inactivateForm">
             <span>
               <label for="weekday"></label>
-              <select name="weekday" class="weekday"></select>
+              <select name="weekday" class="weekday" id="deactivateWeekday"></select>
             </span>
           </form>
         </div>
         <div>
-          <button class="weekdayButton" id="inactivateButton">Frequenzmesser an diesem Tag deaktivieren</button>
+          <button class="weekdayButton" id="deactivateButton" onclick="deactivateFIK();">Frequenzmesser an diesem Tag deaktivieren</button>
         </div>
       </div>
       <div class="update">
@@ -97,24 +117,35 @@
           <form id="updateForm">
             <span>
               <label for="weekday"></label>
-              <select name="weekday" class="weekday"></select>
+              <select name="weekday" class="weekday" id="updateWeekday"></select>
             </span>
           </form>
         </div>
         <div id="updateTableBox">
           <table id="updateTable">
-            <tr>
+           <tr id="startRow">
               <th>Start</th>
-              <td><input id="updateStart" type="time"></td>
-            </tr>
-            <tr>
+              <td><input class="updateTime" id="updateStart" type="time"></td>
+           </tr>
+            <tr id="endRow">
               <th>Ende</th>
-              <td><input id="updateEnde" type="time"></td>
+              <td>
+                <div><input class="updateTime" id="updateEnde" type="time"></div>
+              </td>
+            </tr>
+            <tr class="infoRow" id="infoRowEnde">
+              <th></th>
+              <td>
+                <div class="infoDiv">
+                  <div class="info">Durch Klicken und Pfeiltasten oder</div>
+                  <div class="info">Zahleneingabe Zeiten festlegen.</div>
+                </div>
+              </td>
             </tr>
           </table>
         </div>
         <div>
-          <button class="weekdayButton" id="updateButton">Zeiten aktualisieren</span></button>
+          <button class="weekdayButton" id="updateButton" onclick="updateFIK();">Zeiten aktualisieren</span></button>
         </div>
       </div>
     <script src="{%static 'javascript/script.js' %}"></script>
