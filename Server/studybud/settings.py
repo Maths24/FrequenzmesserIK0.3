@@ -36,8 +36,6 @@ def get_ipaddress():
 
 
 # WLAN2.4, LAN,
-ALLOWED_HOSTS = ['192.168.178.55', '192.168.178.56',
-                 'localhost', '127.0.0.1', '172.16.30.101', '192.168.178.84']
 
 
 # Application definition
