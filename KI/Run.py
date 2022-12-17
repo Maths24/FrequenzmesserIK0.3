@@ -413,7 +413,8 @@ def stop():
             print("kein neuer Tag")
             break
     print(startzeit)
-    while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
+    # while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
+    while True:
         time_now = datetime.now().strftime("%H:%M")
         print(type(time_now), time_now[:2], time_now[3:5])
         if time_now[:2] == startzeit[:2] and time_now[3:5] == startzeit[2:4]:
