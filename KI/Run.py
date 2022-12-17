@@ -17,7 +17,7 @@ import cv2
 import datetime
 from datetime import date
 from itertools import zip_longest
-#from database import DBManager
+from KI.database.dbManager import DBManager
 import json
 from time import sleep
 
@@ -41,7 +41,7 @@ def run():
     ap = argparse.ArgumentParser()
     ap.add_argument("-p", "--prototxt", required=False,
                     help="path to Caffe 'deploy' prototxt file")
-    ap.add_argument("-m", "--model", required=True,
+    ap.add_argument("-m", "--model", required=False,
                     help="path to Caffe pre-trained model")
     ap.add_argument("-i", "--input", type=str,
                     help="path to optional input video file")
@@ -63,7 +63,7 @@ def run():
 
     # load our serialized model from disk
     net = cv2.dnn.readNetFromCaffe(
-        "KI/mobilenet_ssd/MobileNetSSD_deploy.prototxt", "KI/mobilenet_ssd/MobileNetSSD_deploy.caffemodel")
+        "/home/pi/Skripte/FrequenzmesserIK0.3/KI/mobilenet_ssd/MobileNetSSD_deploy.prototxt", "/home/pi/Skripte/FrequenzmesserIK0.3/KI/mobilenet_ssd/MobileNetSSD_deploy.caffemodel")
 
     # if a video path was not supplied, grab a reference to the ip camera
     if not args.get("input", False):
@@ -111,7 +111,7 @@ def run():
 
     if config.Thread:
         vs = thread.ThreadingClass(config.url)
-
+    vs = cv2.VideoCapture(0)
     # loop over frames from the video stream
     # while isActive:
     while datetime.time.hour != endzeit[:1] and datetime.time.minute != endzeit[2:3]:
@@ -120,7 +120,7 @@ def run():
 
         # grab the next frame and handle if we are reading from either
         # VideoCapture or VideoStream
-        frame = vs.read()
+        (grabbed, frame) = vs.read()
         frame = frame[1] if args.get("input", False) else frame
 
         # if we are viewing a video and we did not grab a frame then we
@@ -342,8 +342,8 @@ def run():
         #key = cv2.waitKey(1) & 0xFF
 
         # if the `q` key was pressed, break from the loop
-        if key == ord("q"):
-            break
+        # if key == ord("q"):
+         #   break
 
         # increment the total number of frames processed thus far and
         # then update the FPS counter
