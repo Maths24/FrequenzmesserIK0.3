@@ -67,15 +67,15 @@ def run():
         "/home/pi/Skripte/FrequenzmesserIK0.3/KI/mobilenet_ssd/MobileNetSSD_deploy.prototxt", "/home/pi/Skripte/FrequenzmesserIK0.3/KI/mobilenet_ssd/MobileNetSSD_deploy.caffemodel")
 
     # if a video path was not supplied, grab a reference to the ip camera
-    if not args.get("input", False):
-        print("[INFO] Starting the live stream..")
-        vs = VideoStream(config.url).start()
-        time.sleep(2.0)
+    # if not args.get("input", False):
+    #   print("[INFO] Starting the live stream..")
+    #  vs = VideoStream(config.url).start()
+    # time.sleep(2.0)
 
     # otherwise, grab a reference to the video file
-    else:
-        print("[INFO] Starting the video..")
-        vs = cv2.VideoCapture(args["input"])
+    # else:
+    #   print("[INFO] Starting the video..")
+    #  vs = cv2.VideoCapture(args["input"])
 
     # initialize the video writer (we'll instantiate later if need be)
     writer = None
