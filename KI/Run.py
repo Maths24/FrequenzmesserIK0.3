@@ -414,8 +414,8 @@ def stop():
     print(startzeit)
     while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
         sleep(10)
-        print(datetime.time.hour, startzeit[:2],
-              datetime.time.minute, startzeit[2:4])
+        print(int(datetime.time.hour), startzeit[:2],
+              int(datetime.time.minute), startzeit[2:4])
         pass
 
     run()
