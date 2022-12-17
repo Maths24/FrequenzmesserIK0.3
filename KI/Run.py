@@ -413,9 +413,13 @@ def stop():
             break
     print(startzeit)
     while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
+        time_now = datetime.now().strftime("%H:%M")
+        print(type(time_now), time_now[:2], time_now[3:5])
+        if time_now[:2] == startzeit[:2] and time_now[3:5] == startzeit[2:4]:
+            print("break stop")
+            break
         sleep(10)
-        print(int(datetime.time.hour), startzeit[:2],
-              int(datetime.time.minute), startzeit[2:4])
+
         pass
 
     run()
