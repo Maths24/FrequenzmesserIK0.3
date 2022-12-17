@@ -17,7 +17,8 @@ class DBManager:
 
         sql = ("INSERT INTO daten (kundenzahl)"
                "VALUES (%s)")
+        sql = f"INSERT INTO daten (kundenzahl) VALUES ({amount}"
         val = (amount)
-        self.cursor.execute(sql, val)
+        self.cursor.execute(sql)
 
         self.mydb.commit()
