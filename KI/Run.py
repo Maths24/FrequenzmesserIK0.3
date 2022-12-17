@@ -17,7 +17,7 @@ import cv2
 import datetime
 from datetime import date
 from itertools import zip_longest
-from KI.database.dbManager import DBManager
+from database.dbManager import DBManager
 import json
 from time import sleep
 
