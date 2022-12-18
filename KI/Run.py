@@ -418,10 +418,10 @@ def stop():
         #startzeit = read_config()["timestart"][weekday()+laufvariable % 7]
         dt1 = date.today()
         startzeiten = data["timestart"]
-
+        print((dt1.weekday()+laufvariable) % 7)
         startzeit = startzeiten[(dt1.weekday()+laufvariable) % 7]
         global started
-        if started:
+        if started and laufvariable == 0:
             laufvariable += 1
             print("neuer Tag")
 
