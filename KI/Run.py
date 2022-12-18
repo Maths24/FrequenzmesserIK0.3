@@ -431,7 +431,7 @@ def stop():
         else:
             print("kein neuer Tag")
             break
-    print(startzeit, date.today()+1)
+    print(startzeit)
     # while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
     while True:
 
