@@ -414,6 +414,7 @@ def stop():
     rawdata = f.read()
     data = json.loads(rawdata)
     positionLinie = data["pos"]
+    inactivecounter = 0
     while laufvariable < 7:
         #startzeit = read_config()["timestart"][weekday()+laufvariable % 7]
         dt1 = date.today()
@@ -429,11 +430,14 @@ def stop():
         if startzeit == "9999":
             print("neuer Tag")
             laufvariable += 1
+            inactivecounter += 1
             continue
         else:
             print("kein neuer Tag")
             break
     print(startzeit)
+    sleep(inactivecounter*86400)
+    inactivecounter = 0
     # while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
     while True:
 
