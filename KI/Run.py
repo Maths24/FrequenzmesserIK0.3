@@ -128,6 +128,7 @@ def run():
         time_now = datetime.now().strftime("%H:%M")
         if time_now[:2] == endzeit[:2] and time_now[3:5] == endzeit[2:4]:
             print(">>>[INFO] KI für heute gestoppt")
+            break
     # while datetime.time.hour != endzeit[:1] and datetime.time.minute != endzeit[2:3]:
 
         # grab the next frame and handle if we are reading from either
