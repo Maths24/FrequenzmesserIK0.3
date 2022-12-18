@@ -20,7 +20,7 @@ import cv2
 # ]
 # ---------------------Config---------------------
 
-corY = 100
+corY = 187
 
 
 def read_config():
