@@ -129,8 +129,6 @@ def run():
         if time_now[:2] == endzeit[:2] and time_now[3:5] == endzeit[2:4]:
             print(">>>[INFO] KI für heute gestoppt")
     # while datetime.time.hour != endzeit[:1] and datetime.time.minute != endzeit[2:3]:
-        # Zeit zum Beenden der KI laden
-        jsonData = read_config()
 
         # grab the next frame and handle if we are reading from either
         # VideoCapture or VideoStream
