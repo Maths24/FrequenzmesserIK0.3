@@ -418,10 +418,10 @@ def stop():
 
         startzeit = startzeiten[(dt1.weekday()+laufvariable) % 7]
         if laufvariable == 0:
-            time_now = datetime.now().strftime("%H:%M")
+            time_now = datetime.now().strftime("%H:%M:%S")
             endzeiten = data["timeend"]
             endzeit = endzeiten[(dt1.weekday()+laufvariable) % 7]
-            if int(time_now[:2]) > int(endzeit[:2]) and int(time_now[3:5]) > int(endzeit[3:5]):
+            if int(time_now[:2]) > int(endzeit[:2]) and int(time_now[3:5]) > int(endzeit[3:5]) and int(time_now[6:8]) > 0:
                 print("neuer Tag")
                 laufvariable += 1
 
