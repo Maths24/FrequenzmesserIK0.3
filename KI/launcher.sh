@@ -4,5 +4,5 @@
 
 cd /
 cd home/pi/bbt
-sudo python bbt.py
+sudo python Run.py
 cd /
