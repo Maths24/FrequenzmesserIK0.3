@@ -4,5 +4,5 @@
 
 cd /
 cd home/pi/Skripte/FrequenzmesserIK0.3/KI/
-sudo python3 Run.py
+python3 Run.py
 cd /
