@@ -114,8 +114,21 @@ def run():
         vs = thread.ThreadingClass(config.url)
     vs = cv2.VideoCapture(0)
     # loop over frames from the video stream
+    f = open('/home/pi/Skripte/FrequenzmesserIK0.3/Settings.json')
+    rawdata = f.read()
+    data = json.loads(rawdata)
+    positionLinie = data["pos"]
+    dt1 = date.today()
+    endzeiten = data["timeend"]
+
+    endzeit = endzeiten[dt1.weekday()]
+
     # while isActive:
-    while datetime.time.hour != endzeit[:1] and datetime.time.minute != endzeit[2:3]:
+    while True:
+        time_now = datetime.now().strftime("%H:%M")
+        if time_now[:2] == endzeit[:2] and time_now[3:5] == endzeit[2:4]:
+            print(">>>[INFO] KI für heute gestoppt")
+    # while datetime.time.hour != endzeit[:1] and datetime.time.minute != endzeit[2:3]:
         # Zeit zum Beenden der KI laden
         jsonData = read_config()
 
@@ -416,9 +429,9 @@ def stop():
     # while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
     while True:
         time_now = datetime.now().strftime("%H:%M")
-        print(type(time_now), time_now[:2], time_now[3:5])
         if time_now[:2] == startzeit[:2] and time_now[3:5] == startzeit[2:4]:
-            print("break stop")
+            print(">>>[INFO] KI gestarted")
+
             break
         sleep(10)
 
