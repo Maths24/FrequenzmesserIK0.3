@@ -403,6 +403,9 @@ def read_config():
         return "LoadingFailed"
 
 
+started = False
+
+
 def stop():
     laufvariable = 0
     global positionLinie
@@ -417,13 +420,10 @@ def stop():
         startzeiten = data["timestart"]
 
         startzeit = startzeiten[(dt1.weekday()+laufvariable) % 7]
-        if laufvariable == 0:
-            time_now = datetime.now().strftime("%H:%M:%S")
-            endzeiten = data["timeend"]
-            endzeit = endzeiten[(dt1.weekday()+laufvariable) % 7]
-            if int(time_now[:2]) > int(endzeit[:2]) and int(time_now[3:5]) > int(endzeit[3:5]) and int(time_now[6:8]) > 0:
-                print("neuer Tag")
-                laufvariable += 1
+        global started
+        if started:
+            laufvariable += 1
+            print("neuer Tag")
 
         if startzeit == "9999":
             print("neuer Tag")
@@ -438,7 +438,7 @@ def stop():
         time_now = datetime.now().strftime("%H:%M")
         if time_now[:2] == startzeit[:2] and time_now[3:5] == startzeit[2:4]:
             print(">>>[INFO] KI gestarted")
-
+            started = True
             break
         sleep(10)
 
