@@ -150,6 +150,7 @@ def run():
         # if the frame dimensions are empty, set them
         if W is None or H is None:
             (H, W) = frame.shape[:2]
+            print(H/2)
 
         # if we are supposed to be writing a video to disk, initialize
         # the writer
