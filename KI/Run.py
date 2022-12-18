@@ -417,6 +417,13 @@ def stop():
         startzeiten = data["timestart"]
 
         startzeit = startzeiten[(dt1.weekday()+laufvariable) % 7]
+        if laufvariable == 0:
+            time_now = datetime.now().strftime("%H:%M")
+            endzeiten = data["timeend"]
+            endzeit = endzeiten[(dt1.weekday()+laufvariable) % 7]
+            if int(time_now[:2]) > int(endzeit[:2]) and int(time_now[3:5]) > int(endzeit[3:5]):
+                print("neuer Tag")
+                laufvariable += 1
 
         if startzeit == "9999":
             print("neuer Tag")
@@ -424,9 +431,10 @@ def stop():
         else:
             print("kein neuer Tag")
             break
-    print(startzeit)
+    print(startzeit, date.today()+1)
     # while datetime.time.hour != startzeit[:2] and datetime.time.minute != startzeit[2:4]:
     while True:
+
         time_now = datetime.now().strftime("%H:%M")
         if time_now[:2] == startzeit[:2] and time_now[3:5] == startzeit[2:4]:
             print(">>>[INFO] KI gestarted")
