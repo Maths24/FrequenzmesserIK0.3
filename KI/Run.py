@@ -424,10 +424,12 @@ def stop():
         if started and laufvariable == 0:
             laufvariable += 1
             print("neuer Tag")
+            continue
 
         if startzeit == "9999":
             print("neuer Tag")
             laufvariable += 1
+            continue
         else:
             print("kein neuer Tag")
             break
