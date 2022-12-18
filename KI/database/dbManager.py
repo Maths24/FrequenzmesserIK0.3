@@ -16,9 +16,9 @@ class DBManager:
     def addToDB(self, amount):
 
         sql = ("INSERT INTO daten (kundenzahl)"
-               "VALUE (%s)")
-        sql = f"INSERT INTO daten (kundenzahl) VALUE ({amount}"
-        val = (amount)
-        self.cursor.execute(sql)
+               "VALUES (%s)")
+        val = amount
+        self.cursor.execute(sql, val)
 
         self.mydb.commit()
+        print(val, "inserted in db")
