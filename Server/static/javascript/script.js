@@ -330,6 +330,7 @@ function showData() {
        // "\n"+"Intervallende: "+inputDayED+" "+inputMonthnameED+"("+inputMonthED+") "+inputYearED+" "+inputTimeED+" Uhr");
     
     var datafromApi = httpGet("chart/"+ inputYearSD + "-" + inputMonthSD + "-" + inputDaySD + " " + inputTimeSD +"/" + inputYearED + "-" + inputMonthED + "-" + inputDayED + " " + inputTimeED);
+   console.log(datafromApi)
     var dataforchart = JSON.parse(datafromApi);
    console.log(dataforchart)
     var data = google.visualization.arrayToDataTable(dataforchart);
