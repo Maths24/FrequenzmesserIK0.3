@@ -323,10 +323,11 @@ function showData() {
     inputYearED = document.getElementById("yearED").value;
     inputTimeED = document.getElementById("timeED").value;
 
-
-    alert("Testausgabe \n"+
-        "Intervallstart: "+inputDaySD+" "+inputMonthnameSD+"("+inputMonthSD+") "+inputYearSD+" "+inputTimeSD+" Uhr"+
-        "\n"+"Intervallende: "+inputDayED+" "+inputMonthnameED+"("+inputMonthED+") "+inputYearED+" "+inputTimeED+" Uhr");
+  google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+    //alert("Testausgabe \n"+
+     //   "Intervallstart: "+inputDaySD+" "+inputMonthnameSD+"("+inputMonthSD+") "+inputYearSD+" "+inputTimeSD+" Uhr"+
+       // "\n"+"Intervallende: "+inputDayED+" "+inputMonthnameED+"("+inputMonthED+") "+inputYearED+" "+inputTimeED+" Uhr");
     
     var datafromApi = httpGet("chart/"+ inputYearSD + "-" + inputMonthSD + "-" + inputDaySD + " " + inputTimeSD +"/" + inputYearED + "-" + inputMonthED + "-" + inputDayED + " " + inputTimeED);
     var dataforchart = JSON.parse(datafromApi);
